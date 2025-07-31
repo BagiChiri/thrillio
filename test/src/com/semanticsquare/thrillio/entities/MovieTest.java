@@ -1,0 +1,24 @@
+package com.semanticsquare.thrillio.entities;
+
+import com.semanticsquare.thrillio.constants.MovieGenre;
+import com.semanticsquare.thrillio.managers.BookmarkManager;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class MovieTest {
+
+    @Test
+    public void isKidFriendlyEligible() {
+
+//        Test 1:
+        Movie movie = BookmarkManager.getInstance().createMovie(3000, "Citizen Kane", 1941, new String[]{"Orson Welles,Joseph Cotton"}, new String[]{"Orson Welles"}, MovieGenre.HORROR, 8.5);
+        boolean isKidFriendlyEligible = movie.isKidFriendlyEligible();
+        assertFalse("For Horror movie genre --isKidFriendlyEligible must return false", isKidFriendlyEligible);
+
+//        Test 2:
+        movie = BookmarkManager.getInstance().createMovie(3000, "Citizen Kane", 1941, new String[]{"Orson Welles,Joseph Cotton"}, new String[]{"Orson Welles"}, MovieGenre.THRILLERS, 8.5);
+        isKidFriendlyEligible = movie.isKidFriendlyEligible();
+        assertFalse("For Thriller movie genre --isKidFriendlyEligible must return false", isKidFriendlyEligible);
+    }
+}

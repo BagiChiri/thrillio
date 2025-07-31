@@ -1,0 +1,45 @@
+Web Basics:
+    Key elements of HTTP Request: means type of operation client is  requesting.
+        HTTP Method -> GET, POST, PUT, DELETE ...
+        URL -> where we want to get or post information.
+        Form Parameters -> data that we submit through a form.
+            GET: the form parameters are appended to the URL separated by delemeter (?)
+                e.g., www.thrill.io/movie?title=lincoln
+            POST: the form parameters aren't appended to the URL, but they are sent separately as part of the HTTP request and that
+                separate entity is called a message body or pay load.
+                e.g., name=ali&gender=male&...
+        Request Headers -> they contain some additional information that helps the server to customize the response.
+            User Agent: contains information about what browser the client is using along with the information about the operating
+                system.
+            Accept: tells what type of content like html/text browser can accept.
+
+    Key elements of HTTP Response:
+        HTTP Status Code
+            200: OK
+            404: Not Found
+            500: Internal Server Error
+        Content Type
+            text/html; charset=UTF-8
+            application/pdf
+        Content
+        Response Headers
+            Server: Apache-Coyote/1.1
+            Content-Type: text/html; charset=UTF-8
+
+    Anatomy of URL -> http://www.thrill.io/user/ali/profile.html
+        www.thrill.io: (unique domain name (97.137.246.8) is the server name and this name maps to a
+            unique IP address in the server.
+        /user/ali: is the path which assists the server in locating the resource.
+        /profile.html: is the actual resource itself.
+        Now this website would be running on a TCP Port(16-bit) which is a 16-bit number that identifies a specific program
+            on the server like this website. You can have different services running on a server but on different ports.
+            TCP Port(16-bit) - 0 to 65535 ports
+                out of which:
+                    0 - 1023 (reserved) for well known services
+                        such as:
+                            21: for FTP
+                            23: for Telnet
+                            80: for HTTP (default port for HTTP)
+                            443: for HTTPS
+                    we can specify other than default port for our service and that should be outside the range of 0 - 1023
+                        such as 8080 e.g., (http://www.thrill.io:8080/user/...)
